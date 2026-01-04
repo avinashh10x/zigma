@@ -17,26 +17,23 @@ export default function Header() {
   const isActive = (href: string) => pathname === href;
 
   return (
-    <header className="sticky top-0 z-50 w-full  bg-background ">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <header className="fixed top-5 z-50 w-full bg-transparent flex items-center justify-center ">
+      <div className="max-w-7xl mx-auto  h-16 flex items-center justify-center bg-background px-16 rounded-full">
         {/* Logo */}
        
 
         {/* Navigation */}
-        <nav className="flex items-center gap-8">
+        <nav className="flex items-center gap-8 ">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={`
-                relative text-sm font-medium transition-colors hover:text-primary
-                ${isActive(item.href) ? 'text-primary' : 'text-muted-foreground'}
+                relative text-md font-medium transition-colors hover:text-primary
+                ${isActive(item.href) ? 'text-primary ' : 'text-muted-foreground'}
               `}
             >
               {item.name}
-              {isActive(item.href) && (
-                <span className="absolute -bottom-[17px] left-0 right-0 h-[2px] bg-primary rounded-full" />
-              )}
             </Link>
           ))}
         </nav>
